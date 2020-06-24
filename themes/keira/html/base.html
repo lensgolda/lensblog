@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>{{title}}{% block subtitle %}{% endblock %}</title>
+    <link rel="canonical" href="{{site-url}}{{uri}}">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+
+    <!-- Highlite.js styles -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+
+    <!-- FONTS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+    <!-- CSS -->
+    {% style "/css/reset.css" %}
+    {% style "/css/pygments.css" %}
+    {% style "/css/main.css" %}
+    {% style "/css/custom.css" %}
+
+    <!-- Icon -->
+    <link rel="shortcut icon" href="/img/media.ico">
+
+</head>
+<body>
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            <a href="#til"><img class="avatar" src="/img/avatar/lens_200x200.jpg"></a>
+            <a href="#"><div class="name">{{ author }}</div></a>
+            <nav>
+                <ul>
+                    <li {% if home %} class="nav-home active" {% endif %}>
+                        <a href="{{index-uri}}"><span>Home</span></a>
+                    </li>
+                    <li {% if archives %} class="nav-archives active" {% endif %}>
+                        <a href="{{archives-uri}}"><span>Archives</span></a>
+                    </li>
+                    {% for nav-page in navbar-pages %}
+                    <li {% ifequal page.uri nav-page.uri %} class="nav-page active" {% endifequal %}>
+                        <a href="{{nav-page.uri}}"><span>{{nav-page.title}}</span></a>
+                    </li>
+                    {% endfor %}
+                    <li><a href="{{rss-uri}}"><span>RSS</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+            <a href="https://github.com/lensgolda" target="_blank" rel="noopener"><img class="icon" src="/img/github.svg" alt="github" /></a>
+
+            <a href="https://gitlab.com/lensgolda" target="_blank" rel="noopener"><img class="icon" src="/img/gitlab.svg" alt="gitlab" /></a>
+
+            <a href="https://twitter.com/lensgolda" target="_blank" rel="noopener"><img class="icon" src="/img/twitter.svg" alt="twitter" /></a>
+
+            {% if false %}
+            <a href="#" target="_blank" rel="noopener"><img class="icon" src="/img/calendar.svg" alt="calendar" /></a>
+            {% endif %}
+
+            <a href="https://en.linkedin.com/in/lensgolda" target="_blank" rel="noopener"><img class="icon" src="/img/linkedin.svg" alt="linkedin" /></a>
+
+            {% if false %}
+            <a href="#" target="_blank" rel="noopener"><img class="icon" src="/img/facebook.svg" alt="facebook" /></a>
+            {% endif %}
+
+            <a href="https://t.me/lensgolda" target="_blank" rel="noopener"><img class="icon" src="/img/telegram.svg" alt="telegram" /></a>
+
+            {% if false %}
+            <a href="#" target="_blank" rel="noopener"><img class="icon" src="/img/instagram.svg" alt="instagram" /></a>
+            {% endif %}
+
+            {% if false %}
+            <a href="#" target="_blank" rel="noopener"><img class="icon" src="/img/500px.svg" alt="500px" /></a>
+            {% endif %}
+
+            {% if false %}
+            <a href="#" target="_blank" rel="noopener"><img class="icon" src="/img/soundcloud.svg" alt="soundcloud" /></a>
+            {% endif %}
+
+            {% if 1 %}
+            <a href="mailto:lensgolda@gmail.com"><img class="icon" src="/img/email.svg" alt="email" /></a>
+            {% endif %}
+
+            {% if 1 %}
+            <a href="https://lensgolda.github.io/feed.xml"><img class="icon" src="/img/rss.svg" alt="rss" /></a>
+            {% endif %}
+
+            {% if false %}
+            <a href="#"><img class="icon flag" src="/img/flags/ru.svg"></a>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{% block content %}
+{% endblock %}
+
+<!--<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>-->
+<!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>-->
+{% script "/js/highlight.pack.js" %}
+<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+{% if post.klipse %} {{post.klipse|safe}} {% endif %}
+{% if page.klipse %} {{page.klipse|safe}} {% endif %}
+</body>
+</html>

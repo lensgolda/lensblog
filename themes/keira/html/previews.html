@@ -1,0 +1,21 @@
+{% extends "/html/base.html" %}
+{% block content %}
+<section class="main">
+    <div class="container">
+        <div class="content">
+            <div class="page-heading">Latest Posts</div>
+            <ul>
+                {% for post in posts %}
+                <li class="post-item">
+
+                    <span class="meta"><time datetime='{{ post.date|date:mediumDate }}'>{{ post.date|date:mediumDate }}</time></span>
+
+                    <a href="{{ post.uri }}"><span>{{ post.title }}</span></a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

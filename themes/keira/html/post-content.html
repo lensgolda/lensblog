@@ -1,0 +1,28 @@
+<div class="front-matter">
+    <div class="title-container">
+        <div class="page-heading">{{ post.title }}</div>
+        <div class="initials"><a href="{{ site-url }}"></a></div>
+    </div>
+    <div class="meta">
+        <div class="date" title='{{ post.date|date:\"yyyy-MM-dd\" }}'>{{ post.date|date:"yyyy-MM-dd" }}</div>
+        {% if false %}
+        <div class="reading-time"><div class="middot"></div>{% now yyyy-MM-dd %}</div>
+        {% endif %}
+    </div>
+</div>
+<div class="markdown">
+    {% if post.toc %}{{post.toc|safe}}{% endif %}
+    {{post.content|safe}}
+    <br>
+    {% if post.tags|not-empty %}
+    <div class="tags">
+        <strong>Tags:</strong>
+        {% for tag in post.tags %}
+        <a href="{tag.uri}}">{{ tag.name }}</a>
+        {% endfor %}
+    </div>
+    <br />
+    {% endif %}
+    <p class="back-to-posts"><a href="{{ site-url}}">Home</a></p>
+</div>
+<br>
