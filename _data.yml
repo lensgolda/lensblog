@@ -1,0 +1,11 @@
+lang: en
+home:
+  welcome: Lens blog
+menu_links: []
+metas:
+  site: Lens blog
+  title: =title
+  image: =image
+  twitter: '@lensgolda'
+  lang: en
+  generator: false
