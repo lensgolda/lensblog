@@ -6,7 +6,7 @@ tags:
   - scala
   - mise
   - Zed
-draft: true
+draft: false
 comments: {}
 ---
 Hi! 
